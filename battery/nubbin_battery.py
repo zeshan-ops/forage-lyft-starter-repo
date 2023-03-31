@@ -1,8 +1,8 @@
 from abc import ABC
 from datetime import datetime
-from battery import Battery
+from battery.battery import Battery
 
-class NubinBattery(Battery, ABC):
+class NubbinBattery(Battery, ABC):
     def __init__(self, last_service_date):
         self.last_service_date = last_service_date
 

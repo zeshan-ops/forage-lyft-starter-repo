@@ -7,4 +7,4 @@ class Car(ABC):
         self.battery = battery
 
     def needs_service(self):
-        return True if self.engine.needs_service() or self.battery.needs_service() else False
+        return True if self.engine.needs_service() or self.batter.needs_service() else False
