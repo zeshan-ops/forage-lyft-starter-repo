@@ -72,7 +72,7 @@ class WillougbhyEngineTesting(unittest.TestCase):
         self.assertFalse(engine.needs_service())
 
     """
-    Testing CapuletEngine.needs_service() to return True
+    Testing WilloughbyEngine.needs_service() to return True
     """
     def test_willoughbyEngine_service_1(self): # testing mileage values over threshold
         current_mileage = 112546
@@ -87,6 +87,26 @@ class WillougbhyEngineTesting(unittest.TestCase):
 
         engine = WilloughbyEngine(current_mileage, last_service_mileage)
         self.assertTrue(engine.needs_service())
+
+class SternmanEngineTesting(unittest.TestCase):
+    """
+    Testing SternmanEngine.needs_service() to return False 
+    """
+    def test_sternmanEngine_noService(self):
+        warning_light_on = False
+
+        engine = SternmanEngine(warning_light_on)
+        self.assertFalse(engine.needs_service())
+    
+    """
+    Testing SternmanEngine.needs_service() to return True
+    """
+    def test_sternmanEngine_service(self):
+        warning_light_on = True
+
+        engine = SternmanEngine(warning_light_on)
+        self.assertTrue(engine.needs_service())
+
 
 if __name__ == '__main__':
     unittest.main()
