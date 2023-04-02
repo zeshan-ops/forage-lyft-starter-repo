@@ -46,5 +46,47 @@ class CapuletEngineTesting(unittest.TestCase):
         engine = CapuletEngine(current_mileage, last_service_mileage)
         self.assertTrue(engine.needs_service())   
 
+class WillougbhyEngineTesting(unittest.TestCase):
+    """
+    Testing WilloughbyEngine.needs_service() to return False
+    """
+    def test_willoughbyEngine_noService_1(self): # testing both mileage values same number
+        current_mileage = 0
+        last_service_mileage = 0
+
+        engine = WilloughbyEngine(current_mileage, last_service_mileage)
+        self.assertFalse(engine.needs_service())
+
+    def test_willoughbyEngine_noService_2(self): # testing mileage values different
+        current_mileage = 11
+        last_service_mileage = 10
+
+        engine = WilloughbyEngine(current_mileage, last_service_mileage)
+        self.assertFalse(engine.needs_service())
+
+    def test_willoughbyEngine_noService_3(self): # testing mileage values on threshold
+        current_mileage = 81235
+        last_service_mileage = 21235
+
+        engine = WilloughbyEngine(current_mileage, last_service_mileage)
+        self.assertFalse(engine.needs_service())
+
+    """
+    Testing CapuletEngine.needs_service() to return True
+    """
+    def test_willoughbyEngine_service_1(self): # testing mileage values over threshold
+        current_mileage = 112546
+        last_service_mileage = 31920
+
+        engine = WilloughbyEngine(current_mileage, last_service_mileage)
+        self.assertTrue(engine.needs_service())
+
+    def test_willoughbyEngine_service_2(self): # testing mileage values on threshold
+        current_mileage = 120001
+        last_service_mileage = 60000
+
+        engine = WilloughbyEngine(current_mileage, last_service_mileage)
+        self.assertTrue(engine.needs_service())
+
 if __name__ == '__main__':
     unittest.main()
