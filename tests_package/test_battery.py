@@ -60,7 +60,7 @@ class SpindlerBatteryTesting(unittest.TestCase):
     
     def test_SpindlerBattery_noService_2(self): # testing threshold service dates
         last_service_date = datetime.today().now()
-        current_date = last_service_date.replace(year=last_service_date.year + 2)
+        current_date = last_service_date.replace(year=last_service_date.year + 3)
 
         battery = SpindlerBattery(last_service_date, current_date)
         self.assertFalse(battery.needs_service())
@@ -77,7 +77,7 @@ class SpindlerBatteryTesting(unittest.TestCase):
     """
     def test_SpindlerBattery_service_1(self): # testing threshold service dates
         current_date = datetime.today().now()
-        last_service_date = current_date.replace(year=current_date.year - 2)
+        last_service_date = current_date.replace(year=current_date.year - 3)
         last_service_date = last_service_date.replace(microsecond=last_service_date.microsecond - 1)
 
         battery = SpindlerBattery(last_service_date, current_date)
@@ -85,7 +85,7 @@ class SpindlerBatteryTesting(unittest.TestCase):
 
     def test_SpindlerBattery_service_2(self): # testing non-threshold service dates
         current_date = datetime.today().now()
-        last_service_date = current_date.replace(year=current_date.year - 3)
+        last_service_date = current_date.replace(year=current_date.year - 4)
 
         battery = SpindlerBattery(last_service_date, current_date)
         self.assertTrue(battery.needs_service())
