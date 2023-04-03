@@ -105,8 +105,7 @@ class SternmanEngineTesting(unittest.TestCase):
         warning_light_on = True
 
         engine = SternmanEngine(warning_light_on)
-        self.assertTrue(engine.needs_service())
-
+        self.assertTrue(engine.needs_servicekz)
 
 if __name__ == '__main__':
     unittest.main()
