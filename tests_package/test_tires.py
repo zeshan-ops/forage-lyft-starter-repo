@@ -75,7 +75,7 @@ class OctoprimeTireTesting(unittest.TestCase):
         self.assertFalse(tires.needs_service())
     
     def test_octoprimeTires_noService_4(self): # testing for random sum that is under the threshold
-        tire_wear = [0.81,0.73,0,67,0.41] # sum of the wear comes to 2.62
+        tire_wear = [0.82,0.71,0.73,0.36] # sum of the wear comes to 2.62
 
         tires = OctoprimeTires(tire_wear)
         self.assertFalse(tires.needs_service())
@@ -84,7 +84,7 @@ class OctoprimeTireTesting(unittest.TestCase):
     Testing OctoprimeTires.needs_service() to return True
     """
     def test_octoprimeTires_service_1(self): # testing for threshold wear sum
-        tire_wear = [0.83,0.91,0.83,0.43]
+        tire_wear = [0.83,0.91,0.83,0.43] # sum of the wear comes to 3.00
 
         tires = OctoprimeTires(tire_wear)
         self.assertTrue(tires.needs_service())
