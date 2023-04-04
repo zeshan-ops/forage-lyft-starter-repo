@@ -1,5 +1,4 @@
 import unittest
-from random import randint
 
 from tires.carrigan_tires import CarriganTires
 from tires.octoprime_tires import OctoprimeTires
@@ -12,7 +11,7 @@ class CarriganTireTesting(unittest.TestCase):
         tire_wear = [0,0,0,0]
 
         tires = CarriganTires(tire_wear)
-        self.assertFalse(tires.needs_serivce())
+        self.assertFalse(tires.needs_service())
 
     def test_carriganTires_noService_2(self): # testing for individual tire on threshold of exceeding wear criteria
         tire_wear = [0,0,0.89,0] # here an assumption is made that the sensor has a resolution of 0.01
@@ -53,7 +52,7 @@ class CarriganTireTesting(unittest.TestCase):
         tires = CarriganTires(tire_wear)
         self.assertTrue(tires.needs_service())
 
-class OctoprimeTireTesting(unittest.case):
+class OctoprimeTireTesting(unittest.TestCase):
     """
     Testing OctoprimeTires.needs_serivce() to return False
     """
